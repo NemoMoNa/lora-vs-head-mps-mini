@@ -1,0 +1,230 @@
+
+model=distilgpt2, device=mps, block=256, seed=42
+LoRA : loss 8.0768 -> 1.4012, chrF=0.0636
+Head : loss 8.0305 -> 1.3007, chrF=0.0000
+
+--- SAMPLE 1 ---
+PROMPT:
+### Instruction
+Create a new name for a school mascot based on the lion.
+
+### Response
+
+REF:
+One potential name for a school mascot that is based on the lion could be "The Regal Roarers." This name captures the majestic and powerful nature of the lion, while also incorporating an alliteration for added impact.
+LoRA:
+
+HeadOnly:
+
+
+--- SAMPLE 2 ---
+PROMPT:
+### Instruction
+Explain the basic premise of evolution by natural selection.
+
+### Response
+
+REF:
+Evolution by natural selection refers to the scientific theory that posits that species change over time in response to changes in their environment. This process is driven by natural selection, which refers to the idea that certain traits that allow an organism to better survive and reproduce in its environment are more likely to be passed on to future generations. Over many generations, this process can lead to the development of new species and the extinction of others.
+
+The basic premise of evolution by natural selection is that there is a variation in characteristics and traits within a population of organisms. Some individuals have traits that make them more likely to survive and reproduce, while others may not be as well suited to their environment. The individuals with advantageous traits have a higher chance of surviving and passing on their genes to their offspring, while those with less advantageous traits are less likely to survive and reproduce. Over time, the frequency of advantageous traits increases in the population, leading to gradual changes in the species.
+
+This process is influenced by several factors, including mutation, gene flow, genetic drift, and non-random mating. It is important to note that natural selection is not a conscious process, and it is not directed towards any particular goal. Instead, it is a natural process that occurs as a result of the interactions between organisms and their environment.
+LoRA:
+
+HeadOnly:
+
+
+--- SAMPLE 3 ---
+PROMPT:
+### Instruction
+Create a joke using the words "riddle" and "whale"
+
+### Response
+
+REF:
+Why don't whales like riddles? Because they always get lost in the deep end of the punchline!
+LoRA:
+
+HeadOnly:
+
+
+model=distilgpt2, device=mps, block=256, seed=42
+LoRA : loss 8.0768 -> 1.4012, chrF=0.0636
+Head : loss 8.0305 -> 1.3007, chrF=0.0000
+
+--- SAMPLE 1 ---
+PROMPT:
+### Instruction
+Create a new name for a school mascot based on the lion.
+
+### Response
+
+REF:
+One potential name for a school mascot that is based on the lion could be "The Regal Roarers." This name captures the majestic and powerful nature of the lion, while also incorporating an alliteration for added impact.
+LoRA:
+
+HeadOnly:
+
+
+--- SAMPLE 2 ---
+PROMPT:
+### Instruction
+Explain the basic premise of evolution by natural selection.
+
+### Response
+
+REF:
+Evolution by natural selection refers to the scientific theory that posits that species change over time in response to changes in their environment. This process is driven by natural selection, which refers to the idea that certain traits that allow an organism to better survive and reproduce in its environment are more likely to be passed on to future generations. Over many generations, this process can lead to the development of new species and the extinction of others.
+
+The basic premise of evolution by natural selection is that there is a variation in characteristics and traits within a population of organisms. Some individuals have traits that make them more likely to survive and reproduce, while others may not be as well suited to their environment. The individuals with advantageous traits have a higher chance of surviving and passing on their genes to their offspring, while those with less advantageous traits are less likely to survive and reproduce. Over time, the frequency of advantageous traits increases in the population, leading to gradual changes in the species.
+
+This process is influenced by several factors, including mutation, gene flow, genetic drift, and non-random mating. It is important to note that natural selection is not a conscious process, and it is not directed towards any particular goal. Instead, it is a natural process that occurs as a result of the interactions between organisms and their environment.
+LoRA:
+
+HeadOnly:
+
+
+--- SAMPLE 3 ---
+PROMPT:
+### Instruction
+Create a joke using the words "riddle" and "whale"
+
+### Response
+
+REF:
+Why don't whales like riddles? Because they always get lost in the deep end of the punchline!
+LoRA:
+
+HeadOnly:
+
+[2025-11-12 13:17:16] MODEL=distilgpt2 BLOCK=128 SEED=42 DEVICE=mps
+ LoRA: r=8 alpha=16 dropout=0.05
+
+--- PROMPT 1 ---
+### Instruction:
+Sort ascending: 3 9 6
+### Response:
+
+REF: 3 6 9
+A : 3 9 6
+B : 
+
+--- PROMPT 2 ---
+### Instruction:
+Lowercase this text: LoRA IS FAST
+### Response:
+
+REF: lora is fast
+A : lora IS FAST
+B : 
+
+--- PROMPT 3 ---
+### Instruction:
+Repeat exactly: mac mps
+### Response:
+
+REF: mac mps
+A : mac mps
+B : mac mps
+[2025-11-14 09:00:33] MODEL=distilgpt2 BLOCK=128 BATCH=8 DEVICE=mps
+ LoRA-r4: loss 12.458 -> 0.0807, chrF=0.3157, tok/s=1325
+ LoRA-r8: loss 12.4037 -> 0.0501, chrF=0.6208, tok/s=1385
+ LoRA-r16: loss 12.4455 -> 0.0396, chrF=0.766, tok/s=1403
+ Head: loss 12.4254 -> 0.0464, chrF=0.232, tok/s=1187
+
+--- Samples ---
+PROMPT 1:
+### Instruction:
+Reverse the word order: mini project
+### Response:
+
+REF: project mini
+
+PROMPT 2:
+### Instruction:
+Repeat the token 'ok' 2 times
+### Response:
+
+REF: ok ok
+
+PROMPT 3:
+### Instruction:
+Repeat the token 'ok' 3 times
+### Response:
+
+REF: ok ok ok
+
+[2025-11-15 20:55:33] MODEL=distilgpt2 BLOCK=128 BATCH=8 DEVICE=mps
+ LoRA_fixed   | loader=fixed  | util=0.169 | loss 12.4113->0.0558 | chrF=0.5536 | tok/s=1312
+ LoRA_packed  | loader=packed | util=1.0 | loss 6.8222->0.5822 | chrF=0.8161 | tok/s=8128
+ Head_fixed   | loader=fixed  | util=0.169 | loss 12.4523->0.0578 | chrF=0.0827 | tok/s=1189
+
+--- Samples ---
+PROMPT 1:
+### Instruction:
+Repeat the token 'ok' 2 times
+### Response:
+
+REF: ok ok
+
+PROMPT 2:
+### Instruction:
+Repeat the token 'ok' 3 times
+### Response:
+
+REF: ok ok ok
+
+PROMPT 3:
+### Instruction:
+Repeat exactly: hello world
+### Response:
+
+REF: hello world
+
+[2025-11-20 06:15:25] DATASET=alpaca MODEL=distilgpt2 BLOCK=256 BATCH=8 DEVICE=mps
+ LoRA : loss 9.5016->1.1357 | chrF=0.3885 | tok/s=4102
+ Head : loss 7.6471->1.0598 | chrF=0.0026 | tok/s=3969
+
+--- Samples (first 2) ---
+PROMPT:
+### Instruction:
+Describe the differences between machine and deep learning
+### Response:
+
+REF : Machine learning and deep learning are both subfields of artificial intelligence, with deep learning being a subset of machine learning. Both technologies enable computers to learn from data and improve their performance over time. However, there are some fundamental differences between the two.
+
+Machine learning algorithms are designed to learn from data and make predictions or decisions based on that data. These algorithms can be divided into three main categories - supervised, unsupervised, and reinforcement learning- and they are often used for tasks such as classification, regression, clustering, and anomaly detection. Machine learning algorithms require feature extraction where relevant features that represent the data in the best possible way are selected and fed to the machine learning models.
+
+Deep learning, on the other hand, is a type of machine learning that uses neural networks with multiple layers. These layers are capable of learning features automatically from the data without the need for manual feature extraction. Deep learning algorithms can handle large amounts of data and are able to learn complex patterns or relationships, making them suitable for tasks such as image and speech recognition, natural language processing, and computer vision.
+
+In summary, the main difference between machine learning and deep learning is the approach to learning from data. Machine learning algorithms often require human intervention to select relevant features, while deep learning algorithms are designed to automatically learn features from raw data. Deep learning models can handle more complex data and tasks, but often require larger amounts of data and computational power to train effectively.
+
+PROMPT:
+### Instruction:
+Design a database schema to record employee salaries.
+### Response:
+
+REF : Here is a possible database schema for recording employee salaries:
+
+Table: employees
+- id (primary key)
+- name
+- email
+- department_id (foreign key referencing departments.id)
+
+Table: departments
+- id (primary key)
+- name
+
+Table: salaries
+- id (primary key)
+- employee_id (foreign key referencing employees.id)
+- salary
+- start_date
+- end_date (optional)
+
+The "employees" table stores information about each employee, including their name, email address, and department. The "departments" table stores information about each department, including its name. The "salaries" table stores information about each employee's salary, including the employee's ID, salary amount, and the start and end dates of the salary period.
+
+Note that this schema assumes that each employee is only associated with one department at a time. If an employee can be associated with multiple departments, you may need to modify the schema accordingly. Additionally, you may want to add additional fields to the tables to store more information, such as job titles, employee IDs, or manager information, depending on your specific needs.
+
